@@ -1,0 +1,58 @@
+
+
+// MySQL Table creation 
+
+CREATE TABLE employees (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    position VARCHAR(50),
+    salary DECIMAL(10, 2)
+);
+
+
+INSERT INTO employees (name, position, salary) VALUES ('Ramu', 'Manager', 75000.00);
+INSERT INTO employees (name, position, salary) VALUES ('Murli', 'Developer', 60000.00);
+INSERT INTO employees (name, position, salary) VALUES ('Mohan', 'Analyst', 50000.00);
+INSERT INTO employees (name, position, salary) VALUES ('Anil', 'Developer', 55000.00);
+
+Create a Stored Procedure
+----------------------------
+Next, create a stored procedure named getEmployeeName that takes an 
+employee ID as an input parameter and returns the employee's name as an output parameter.
+
+
+//DELIMITER  
+
+CREATE PROCEDURE getEmployeeName(IN empId INT, OUT empName VARCHAR(50))
+BEGIN
+    SELECT name INTO empName FROM employees WHERE id = empId;
+END  
+/
+
+
+
+DELIMITER ;
+
+
+
+
+
+
+IN Parameter (empId): This is an input parameter for the stored procedure, which takes the employee ID.
+OUT Parameter (empName): This is an output parameter that will hold the name of the employee.
+
+
+Executing the Stored Procedure:
+
+callableStatement.execute(): Executes the stored procedure.
+Retrieving the Output Parameter:
+
+callableStatement.getString(2): Retrieves the value of the output parameter (employee name) from the callable statement.
+Handling Exceptions:
+
+SQLException is caught and printed in case of any errors during database operations.
+
+
+
+
+
