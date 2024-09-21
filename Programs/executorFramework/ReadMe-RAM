@@ -1,0 +1,76 @@
+   0 New
+   1. Runnable 
+   2. Blcoked
+   3. Waiting(join)
+   4. Timed Waititng(Specific time/sleep)
+   5. Terminated
+
+
+Executor Service
+1. execute()
+2. shutDown() // shutting down after completion
+3. awaitTermination()
+4. Future 
+5. submit (new Runnable())
+6. submit(new Callable())
+
+Executor Framework in Java
+
+1. The Executor Framework in Java is a powerful tool for managing concurrent execution.
+2. It provides a flexible and efficient way to submit tasks for asynchronous execution, 
+    control the lifecycle of these tasks, and handle the results.
+
+3. The Executor is a simple interface provided in the java.util.concurrent package
+4. The Executor interface contains only one method, execute(Runnable command),
+   which takes a Runnable object as an argument. The Runnable defines the
+   task to be executed.
+   
+   
+ExecutorService is an interface in Java's java.util.concurrent package that
+ provides a framework for managing and controlling threads, allowing you
+  to execute tasks asynchronously without manually handling the creation
+   and management of individual threads.
+
+
+
+
+ExecutorService in the java.util.concurrent package, which is a part of
+ Java's concurrency
+ framework. 
+
+1. execute(Runnable command):
+   This method is used to submit a task for execution.
+   It takes a Runnable object and executes it asynchronously. 
+   The method doesn't return any value.
+
+2. shutdown():
+   This method initiates an orderly shutdown of the ExecutorService. 
+   No new tasks are accepted, but previously submitted tasks continue to
+    execute until completion.
+
+3. awaitTermination(long timeout, TimeUnit unit):
+   After calling shutdown(), this method blocks until all tasks have completed execution, 
+   or the timeout occurs, or the current thread is interrupted. It takes the timeout and 
+   the time unit as parameters.
+
+4. Future<V>:
+   This interface represents the result of an asynchronous computation. 
+   It provides methods to check if the task is complete, to wait for the result, 
+   and to cancel the task.
+   
+   "computation" refers to the process of information processing, where data 
+   is manipulated,
+
+5. submit(Runnable task):
+   This method submits a Runnable task for execution and returns a Future<?> 
+   representing the task. 
+   Since Runnable doesn’t return a result, the Future will return null on get().
+
+6. submit(Callable<V> task):
+   This method submits a Callable task for execution and returns a Future<V> 
+   representing the    result of the task.
+    A Callable can return a result, unlike Runnable.
+
+
+
+
