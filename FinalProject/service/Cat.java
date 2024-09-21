@@ -1,13 +1,14 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.service;
 
 import java.util.Scanner;
+
+import com.evergent.coreJAVA.sandeep.FinalProject.bean.Pet;
 
 public class Cat extends Pet {
 	private static final double PERSIAN_CAT_PRICE = 7000;
 	private static final double BOMBAY_CAT_PRICE = 4600;
 	private static final double SIAMESE_CAT_PRICE = 10000;
 
-	@Override
 	public void selectBreed(String area) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("\nSelect Cat Breed:");

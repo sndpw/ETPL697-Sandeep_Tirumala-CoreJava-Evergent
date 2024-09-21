@@ -1,4 +1,4 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class PetDAO {
 
-	static double finalCost = 0;
+	private static double finalCost = 0;
 
-	public static int addPet(Pet p) {
+	public static int addPet(com.evergent.coreJAVA.sandeep.FinalProject.bean.Pet p) {
 		Connection conn = null;
 
 		try {
@@ -20,13 +20,13 @@ public class PetDAO {
 				String query = "insert into petDAO values (?, ?, ?, ?, ?)";
 				PreparedStatement pstmt = conn.prepareStatement(query);
 
-				String area = p.area;
+				String area = p.getArea();
 				String breed = p.getBreed();
 				int quantity = p.getQuantity();
 				double price = p.getPrice();
 				double totalCost = p.getTotalCost();
 
-				finalCost += totalCost;
+				setFinalCost(getFinalCost() + totalCost);
 
 				pstmt.setString(1, area);
 				pstmt.setString(2, breed);
@@ -70,6 +70,14 @@ public class PetDAO {
 			result.add(s6);
 		}
 		return result;
+	}
+
+	public static double getFinalCost() {
+		return finalCost;
+	}
+
+	public static void setFinalCost(double finalCost) {
+		PetDAO.finalCost = finalCost;
 	}
 
 }

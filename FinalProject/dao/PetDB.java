@@ -1,4 +1,4 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

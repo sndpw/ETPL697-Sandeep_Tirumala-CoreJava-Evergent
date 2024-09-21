@@ -1,4 +1,4 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.service;
 
 public class Discount {
 	private static final double TAX_RATE;

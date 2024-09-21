@@ -1,6 +1,8 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.service;
 
 import java.util.Scanner;
+
+import com.evergent.coreJAVA.sandeep.FinalProject.bean.Pet;
 
 public class Bird extends Pet {
 	private static final double PARROT_PRICE = 500;
@@ -14,7 +16,6 @@ public class Bird extends Pet {
 //	public Bird() {
 //	}
 
-	@Override
 	public void selectBreed(String area) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("\nSelect Bird Breed:");
@@ -44,10 +45,4 @@ public class Bird extends Pet {
 			System.out.println("Invalid input! Please enter a valid choice.");
 		}
 	}
-
-//	@Override
-//	public void displayDetails() {
-//		System.out.println("==============================================");
-//		System.out.println(getBreed() + " - Quantity: " + getQuantity() + ", Cost: RS." + getTotalCost());
-//	}
 }

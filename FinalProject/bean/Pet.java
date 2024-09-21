@@ -1,12 +1,15 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.bean;
 
 import java.util.Scanner;
+
+import com.evergent.coreJAVA.sandeep.FinalProject.controller.Main;
+import com.evergent.coreJAVA.sandeep.FinalProject.service.Discount;
 
 public abstract class Pet implements PetOperations {
 	private String breed;
 	private double price;
 	private int quantity;
-	protected String area;
+	private String area;
 
 	public Pet(String breed, double price) {
 		this.breed = breed;
@@ -19,7 +22,7 @@ public abstract class Pet implements PetOperations {
 	public void setDetails(String breed, double price, String area) {
 		this.breed = breed;
 		this.price = price;
-		this.area = area;
+		this.setArea(area);
 	}
 
 	public void setQuantity(int quantity) {
@@ -58,11 +61,19 @@ public abstract class Pet implements PetOperations {
 		double totalCostWithTax = Discount.calculateTotalCostWithTax(totalCost);
 		double totalCostWithDiscount = Discount.applyDiscount(totalCost);
 		System.out.println("=============================================================");
-		System.out.println("Area: " + Main.areaSelected + " | " + getBreed() + " - Quantity: " + getQuantity()
+		System.out.println("Area: " + Main.getAreaSelected() + " | " + getBreed() + " - Quantity: " + getQuantity()
 				+ ", Cost: RS." + getPrice());
 		System.out.println("Total Cost (excluding tax): RS." + totalCost);
 		System.out.println("Total Cost (including tax): RS." + totalCostWithTax);
 		System.out.println("Total Cost (with discount): RS." + totalCostWithDiscount);
 		System.out.println("=============================================================");
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
 	}
 }

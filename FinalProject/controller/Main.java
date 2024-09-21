@@ -1,10 +1,17 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.controller;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.evergent.coreJAVA.sandeep.FinalProject.bean.Pet;
+import com.evergent.coreJAVA.sandeep.FinalProject.dao.PetDAO;
+import com.evergent.coreJAVA.sandeep.FinalProject.service.Bird;
+import com.evergent.coreJAVA.sandeep.FinalProject.service.Dog;
+import com.evergent.coreJAVA.sandeep.FinalProject.service.Cat;
+import com.evergent.coreJAVA.sandeep.FinalProject.service.Discount;
+
 public class Main {
-	static String areaSelected;
+	private static String areaSelected;
 	private static Pet currentPet;
 	private static boolean paymentDone = false;
 	protected static double finalPrice = 0;
@@ -62,15 +69,15 @@ public class Main {
 
 			switch (area) {
 			case "K":
-				areaSelected = "KPHB";
+				setAreaSelected("KPHB");
 				selectPetType();
 				return;
 			case "B":
-				areaSelected = "Bachupally";
+				setAreaSelected("Bachupally");
 				selectPetType();
 				return;
 			case "M":
-				areaSelected = "Madhapur";
+				setAreaSelected("Madhapur");
 				selectPetType();
 				return;
 			case "BACK":
@@ -95,17 +102,17 @@ public class Main {
 			switch (choice) {
 			case "dogs":
 				currentPet = new Dog();
-				currentPet.selectBreed(areaSelected);
+				currentPet.selectBreed(getAreaSelected());
 				pDAO.addPet(currentPet);
 				break;
 			case "birds":
 				currentPet = new Bird();
-				currentPet.selectBreed(areaSelected);
+				currentPet.selectBreed(getAreaSelected());
 				pDAO.addPet(currentPet);
 				break;
 			case "cats":
 				currentPet = new Cat();
-				currentPet.selectBreed(areaSelected);
+				currentPet.selectBreed(getAreaSelected());
 				pDAO.addPet(currentPet);
 				break;
 			case "back":
@@ -119,7 +126,8 @@ public class Main {
 					System.out.println(s);
 				}
 				System.out.println("==============================================");
-				System.out.println("Total Cost with Discounts Applied: RS." + Discount.applyDiscount(pDAO.finalCost));
+				System.out.println(
+						"Total Cost with Discounts Applied: RS." + Discount.applyDiscount(pDAO.getFinalCost()));
 				handlePaymentModule();
 			}
 		}
@@ -154,7 +162,7 @@ public class Main {
 					for (Object s : lis) {
 						System.out.println(s);
 					}
-					System.out.println("at " + areaSelected + " pet store.");
+					System.out.println("at " + getAreaSelected() + " pet store.");
 					System.out.println("=============================================");
 					paymentDone = true;
 					break;
@@ -166,8 +174,8 @@ public class Main {
 					for (Object s : lis) {
 						System.out.println(s);
 					}
-					System.out.println("Final Price: " + pDAO.finalCost);
-					System.out.println("Discounted Price: " + Discount.applyDiscount(pDAO.finalCost));
+					System.out.println("Final Price: " + pDAO.getFinalCost());
+					System.out.println("Discounted Price: " + Discount.applyDiscount(pDAO.getFinalCost()));
 				} else {
 					System.out.println("Please make Payment to generate the invoice.");
 				}
@@ -183,8 +191,16 @@ public class Main {
 	}
 
 	private static void displayDiscountCalculation() {
-		double discountedPrice = Discount.applyDiscount(pDAO.finalCost);
-		System.out.println("Original Price: RS." + pDAO.finalCost);
+		double discountedPrice = Discount.applyDiscount(pDAO.getFinalCost());
+		System.out.println("Original Price: RS." + pDAO.getFinalCost());
 		System.out.println("Price after Discount: RS." + discountedPrice);
+	}
+
+	public static String getAreaSelected() {
+		return areaSelected;
+	}
+
+	public static void setAreaSelected(String areaSelected) {
+		Main.areaSelected = areaSelected;
 	}
 }

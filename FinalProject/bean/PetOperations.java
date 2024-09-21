@@ -1,4 +1,4 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.bean;
 
 public interface PetOperations {
 	void selectBreed(String area);

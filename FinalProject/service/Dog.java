@@ -1,6 +1,8 @@
-package com.evergent.coreJAVA.sandeep.final_project;
+package com.evergent.coreJAVA.sandeep.FinalProject.service;
 
 import java.util.Scanner;
+
+import com.evergent.coreJAVA.sandeep.FinalProject.bean.Pet;
 
 public class Dog extends Pet {
 	private static final double LABRADOR_PRICE = 2500;
@@ -37,10 +39,4 @@ public class Dog extends Pet {
 			System.out.println("Invalid input! Please enter a valid choice.");
 		}
 	}
-
-//	@Override
-//	public void displayDetails() {
-//		System.out.println("==============================================");
-//		System.out.println(getBreed() + " - Quantity: " + getQuantity() + ", Cost: RS." + getTotalCost());
-//	}
 }
